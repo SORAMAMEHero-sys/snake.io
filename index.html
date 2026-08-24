@@ -10,14 +10,19 @@
 　</head>
 
 　<body>
+   <button id="right">右</button>
 　　<h1> ヘビゲーム </h1>
 　　<div id="box">
    <div id="snake"></div>
    </div>
    
   <script>
-   alert("ヘビ！");
- </script>
+   const snake=document.getElementById("snake")
+   const right = document.getElementById("right")
+   right.addEventListener("click", function() {
+    snake.style.left = "100px"
+})
+</script>
    
 </body>
 
