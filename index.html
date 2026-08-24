@@ -19,12 +19,13 @@
    
   <script>
    const snake=document.getElementById("snake")
+   let snakeX = 50
    const right = document.getElementById("right")
    const left = document.getElementById("left")
-   right.addEventListener("click", function() {
-    snake.style.left = "100px"})
-   left.addEventListener("click", function() {
-    snake.style.left = "0px"})
+   right.addEventListener("click", function() {snakeX = snakeX + 25
+    snake.style.left = snakeX + "px"})
+   left.addEventListener("click", function() {snakeX = snakeX + -25
+    snake.style.left = snakeX+ "px"})
 </script>
    
 </body>
