@@ -40,16 +40,27 @@ button {
    const left = document.getElementById("left")
    const up = document.getElementById("up")
    const down = document.getElementById("down")
-   right.addEventListener("click", function() {snakeX = snakeX + 25
-    snake.style.left = snakeX + "px"})
-   left.addEventListener("click", function() {snakeX = snakeX + -25
-    snake.style.left = snakeX+ "px"})
+   right.addEventListener("click", function() {
+    if (snakeX < 275) {
+        snakeX = snakeX + 25
+        snake.style.left = snakeX + "px"}
+    })
+    left.addEventListener("click", function() {
+    if (snakeX > 0) {
+        snakeX = snakeX - 25
+        snake.style.left = snakeX + "px"}
+    })
     up.addEventListener("click", function() {
-    snakeY = snakeY - 25
-    snake.style.top = snakeY + "px"})
+    if (snakeY > 0) {
+        snakeY = snakeY - 25
+        snake.style.top = snakeY + "px"}
+    })
     down.addEventListener("click", function() {
-    snakeY = snakeY + 25
-    snake.style.top = snakeY + "px"})
+    if (snakeY < 275) {
+        snakeY = snakeY + 25
+        snake.style.top = snakeY + "px"
+    }
+})
     
   </script>
    
