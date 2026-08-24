@@ -19,7 +19,7 @@ button {
 }
    #box {width: 300px;height: 300px;background-color: red;}
    #snake {width: 25px;height: 25px;background-color: blue;position: relative;left: 50px;}
-   #apple {width: 25px;height: 25px;background-color: green;}
+   #apple {width: 25px;height: 25px;background-color: green;position: relative;}
  </style>
 　</head>
 
@@ -45,10 +45,15 @@ button {
    const left = document.getElementById("left")
    const up = document.getElementById("up")
    const down = document.getElementById("down")
+   const audioCtx = new AudioContext()
    function checkApple() {if (snakeX == appleX && snakeY == appleY) {
     appleX = Math.floor(Math.random() * 12) * 25
     appleY = Math.floor(Math.random() * 12) * 25
-    
+    const oscillator = audioCtx.createOscillator()
+    oscillator.connect(audioCtx.destination)
+    oscillator.frequency.value = 500
+    oscillator.start()
+    oscillator.stop(audioCtx.currentTime + 0.2)
     apple.style.left = appleX + "px"
     apple.style.top = appleY + "px"
 }
