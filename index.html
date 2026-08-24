@@ -19,6 +19,7 @@ button {
 }
    #box {width: 300px;height: 300px;background-color: red;}
    #snake {width: 25px;height: 25px;background-color: blue;position: relative;left: 50px;}
+   #apple {width: 25px;height: 25px;background-color: red;}
  </style>
 　</head>
 
@@ -30,12 +31,16 @@ button {
 　　<h1> ヘビゲーム </h1>
 　　<div id="box">
    <div id="snake"></div>
+   <div id="apple"></div>
    </div>
    
   <script>
    const snake=document.getElementById("snake")
+   const apple = document.getElementById("apple")
    let snakeX = 50
    let snakeY = 0
+   let appleX = 75
+   let appleY = 150
    const right = document.getElementById("right")
    const left = document.getElementById("left")
    const up = document.getElementById("up")
@@ -44,6 +49,9 @@ button {
     if (snakeX < 275) {
         snakeX = snakeX + 25
         snake.style.left = snakeX + "px"}
+        if (snakeX == appleX && snakeY == appleY) {
+        apple.style.display = "none"
+}
     })
     left.addEventListener("click", function() {
     if (snakeX > 0) {
@@ -61,7 +69,9 @@ button {
         snake.style.top = snakeY + "px"
     }
 })
-    
+    apple.style.left = appleX + "px"
+    apple.style.top = appleY + "px"
+  
   </script>
    
 </body>
