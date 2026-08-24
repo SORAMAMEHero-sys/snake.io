@@ -45,29 +45,39 @@ button {
    const left = document.getElementById("left")
    const up = document.getElementById("up")
    const down = document.getElementById("down")
+   function checkApple() {if (snakeX == appleX && snakeY == appleY) {
+    appleX = Math.floor(Math.random() * 12) * 25
+    appleY = Math.floor(Math.random() * 12) * 25
+    
+    apple.style.left = appleX + "px"
+    apple.style.top = appleY + "px"
+}
+
+}
    right.addEventListener("click", function() {
     if (snakeX < 275) {
         snakeX = snakeX + 25
         snake.style.left = snakeX + "px"}
-        if (snakeX == appleX && snakeY == appleY) {
-        apple.style.display = "none"
-}
+        checkApple()
     })
     left.addEventListener("click", function() {
     if (snakeX > 0) {
         snakeX = snakeX - 25
         snake.style.left = snakeX + "px"}
+        checkApple()
     })
     up.addEventListener("click", function() {
     if (snakeY > 0) {
         snakeY = snakeY - 25
         snake.style.top = snakeY + "px"}
+        checkApple()
     })
     down.addEventListener("click", function() {
     if (snakeY < 275) {
         snakeY = snakeY + 25
         snake.style.top = snakeY + "px"
-    }
+        checkApple()
+     }
 })
     apple.style.left = appleX + "px"
     apple.style.top = appleY + "px"
