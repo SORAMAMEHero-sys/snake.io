@@ -46,19 +46,25 @@ button {
    const up = document.getElementById("up")
    const down = document.getElementById("down")
    const audioCtx = new AudioContext()
-   function checkApple() {if (snakeX == appleX && snakeY == appleY) {
-    appleX = Math.floor(Math.random() * 12) * 25
-    appleY = Math.floor(Math.random() * 12) * 25
-    const oscillator = audioCtx.createOscillator()
-    oscillator.connect(audioCtx.destination)
-    oscillator.frequency.value = 500
-    oscillator.start()
-    oscillator.stop(audioCtx.currentTime + 0.2)
-    apple.style.left = appleX + "px"
-    apple.style.top = appleY + "px"
-}
+   function checkApple() {
+    if (snakeX == appleX && snakeY == appleY) {
 
+        appleX = Math.floor(Math.random() * 12) * 25
+        appleY = Math.floor(Math.random() * 12) * 25
+
+        apple.style.left = appleX + "px"
+        apple.style.top = appleY + "px"
+
+        audioCtx.resume()
+
+        const oscillator = audioCtx.createOscillator()
+        oscillator.connect(audioCtx.destination)
+        oscillator.frequency.value = 500
+        oscillator.start()
+        oscillator.stop(audioCtx.currentTime + 0.2)
+    }
 }
+    
    right.addEventListener("click", function() {
     if (snakeX < 275) {
         snakeX = snakeX + 25
