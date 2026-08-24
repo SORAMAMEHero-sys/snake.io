@@ -25,6 +25,8 @@ button {
 　<body>
    <button id="right">右</button>
    <button id="left">左</button>
+   <button id="up">上</button>
+   <button id="down">下</button>
 　　<h1> ヘビゲーム </h1>
 　　<div id="box">
    <div id="snake"></div>
@@ -33,13 +35,20 @@ button {
   <script>
    const snake=document.getElementById("snake")
    let snakeX = 50
+   let snakeY = 0
    const right = document.getElementById("right")
    const left = document.getElementById("left")
+   const up = document.getElementById("up")
+   const down = document.getElementById("down")
    right.addEventListener("click", function() {snakeX = snakeX + 25
     snake.style.left = snakeX + "px"})
    left.addEventListener("click", function() {snakeX = snakeX + -25
     snake.style.left = snakeX+ "px"})
-</script>
+    up.addEventListener("click", function() {
+    snakeY = snakeY - 25
+    snake.style.top = snakeY + "px"})
+    
+  </script>
    
 </body>
 
